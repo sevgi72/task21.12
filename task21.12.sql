@@ -220,8 +220,5 @@ ON ar.Id = al.ArtistId;
 --2.query
 SELECT
 al.Name AS AlbumName,
-COUNT(m.Id) AS MusicCount
+(SELECT COUNT(*) FROM Musics m WHERE m.AlbumId=al.Id) AS MusicCount
 FROM Albums al
-JOIN Musics m 
-ON al.Id = m.AlbumId
-GROUP BY al.Name; 
